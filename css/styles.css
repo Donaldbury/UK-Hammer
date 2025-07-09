@@ -104,7 +104,7 @@ body {
 @media (max-width: 768px) {
   .home-page .button-group {
     justify-content: center;
-    margin-bottom: 2rem;
+	margin-bottom: 2rem;
   }
 
   .home-page .button-group .btn-custom {
@@ -225,7 +225,6 @@ body {
 /* ============================
       Gallery Page Styles
 ============================ */
-
 .gallery-page {
   margin: 0;
   padding: 0;
@@ -336,13 +335,15 @@ body {
   }
 
   .gallery-page .comparison-row {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;         /* Override mobile stacking */
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 1rem;
   }
 
   .gallery-page .gallery-image {
-    width: 100%;
-    margin-bottom: 1.5rem;
+    width: 50% !important;       /* Enforce side-by-side layout */
+    margin-bottom: 0 !important;
   }
 
   .gallery-page .gallery-image img {
@@ -364,7 +365,6 @@ body {
 /* ============================
       Reusable Button Styles
 ============================ */
-
 .responsive-btn {
   width: auto;
 }
@@ -383,14 +383,13 @@ body {
 /* ============================
       Custom Alert Styling
 ============================ */
-
 .custom-alert {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(214, 214, 214, 0.85); 
-  border: 1px solid #4a4a4a; 
+  background-color: rgba(214, 214, 214, 0.85);
+  border: 1px solid #4a4a4a;
   border-radius: 10px;
   padding: 1rem 1.5rem;
   display: flex;
