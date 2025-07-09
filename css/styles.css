@@ -104,6 +104,7 @@ body {
 @media (max-width: 768px) {
   .home-page .button-group {
     justify-content: center;
+    margin-bottom: 2rem;
   }
 
   .home-page .button-group .btn-custom {
