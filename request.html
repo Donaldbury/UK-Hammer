@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request a Service</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="css/styles.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+<body class="request-page">
+
+  <!-- Top Banner -->
+  <div class="top-banner d-flex justify-content-between align-items-center">
+    <a href="index.html" class="home-link">← Home</a>
+    <img src="images/logo.png" alt="Logo" class="logo" />
+  </div>
+
+  <div class="container py-5">
+    <h2 class="text-center mb-4">Request a Service</h2>
+
+    <form id="serviceForm" enctype="multipart/form-data" novalidate>
+      <!-- Services -->
+      <div>
+        <label class="form-label fw-semibold">What services do you need?</label>
+        <div class="row g-3">
+          <div class="col-md-4"><label class="service-option"><span>Painting</span><input type="checkbox" name="services" value="painting" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Tiling</span><input type="checkbox" name="services" value="tiling" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Cabinet Fitting</span><input type="checkbox" name="services" value="cabinet fitting" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Carpentry</span><input type="checkbox" name="services" value="carpentry" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Assembling</span><input type="checkbox" name="services" value="assembling" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Toilet Fitting</span><input type="checkbox" name="services" value="toilet fitting" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Carpet Fitting</span><input type="checkbox" name="services" value="carpet fitting" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Gardening</span><input type="checkbox" name="services" value="gardening" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Tap Changing</span><input type="checkbox" name="services" value="tap changing" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Laminating</span><input type="checkbox" name="services" value="laminating" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Wallpapering</span><input type="checkbox" name="services" value="wallpapering" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Repairing Old Windows</span><input type="checkbox" name="services" value="repairing old windows" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Window/Door Fitting</span><input type="checkbox" name="services" value="window/door fitting" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Fencing</span><input type="checkbox" name="services" value="fencing" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Installation</span><input type="checkbox" name="services" value="installation" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Camera Installation</span><input type="checkbox" name="services" value="camera installation" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>TV Wall Installation</span><input type="checkbox" name="services" value="tv wall installation" class="form-check-input service-checkbox" /></label></div>
+          <div class="col-md-4"><label class="service-option"><span>Others</span><input type="checkbox" name="services" value="others" class="form-check-input service-checkbox" /></label></div>
+        </div>
+      </div>
+      <div id="servicesError" class="invalid-feedback d-block mb-4" style="display:none;">Please select at least one service.</div>
+		
+      <!-- Hidden fields -->
+      <input type="hidden" name="services_combined" id="services_combined" />
+      <input type="text" name="honey_field" style="display:none;" autocomplete="off" />
+
+      <!-- More Info -->
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Additional Information and/or Requests <span class="optional">(optional)</span>:</label>
+        <textarea class="form-control" name="details" rows="3"></textarea>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Your Contact Details:</label>
+        <input type="text" class="form-control" name="name" placeholder="Your Name" required />
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" name="address" placeholder="Address" required />
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" name="postcode" placeholder="Postcode" required />
+      </div>
+      <div class="mb-3">
+        <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required />
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control" name="email" placeholder="Your Email" required />
+      </div>
+
+      <!-- Buttons -->
+      <div class="button-group d-flex flex-wrap justify-content-between gap-3 mt-4">
+        <a href="index.html" class="btn btn-secondary-custom responsive-btn">Back to Home</a>
+        <button type="submit" class="btn btn-custom responsive-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <img src="images/hammer.png" alt="Watermark" class="watermark" />
+  
+  <div id="customAlert" class="custom-alert d-none">
+  <div class="alert-content">
+    <span class="alert-text" id="alertMessage">Your message here</span>
+    <img src="images/logo.png" alt="Logo" class="alert-logo" />
+  </div>
+</div>
+</body>
+</html>
