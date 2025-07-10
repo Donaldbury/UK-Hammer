@@ -39,7 +39,7 @@ body {
 }
 
 .home-page .top-bar img.logo {
-  height: 100px;
+  height: 90px;
 }
 
 .home-page .top-bar .social-icons a {
@@ -252,7 +252,7 @@ body {
 }
 
 .gallery-page .gallery-section {
-  padding-top: 15vh;
+  padding-top: 5vh;
   padding-bottom: 3rem;
   position: relative;
 }
@@ -430,3 +430,9 @@ body {
   }
 }
 
+.about-image {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
